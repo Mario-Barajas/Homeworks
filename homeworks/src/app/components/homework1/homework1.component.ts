@@ -12,4 +12,5 @@ export class Homework1Component {
     this.active = !this.active;
     this.className = this.active ? 'redText' : '';
   };
+  protected fontStyle: any = { color: '#FF0000' };
 }
