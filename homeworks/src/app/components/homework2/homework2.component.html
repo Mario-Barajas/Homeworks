@@ -3,3 +3,7 @@
 <ul *ngFor="let letter of letters">
   <li>{{ letter }}</li>
 </ul>
+<h2>NgIf</h2>
+<ul *ngFor="let letter of letters">
+  <li *ngIf="letter == 'B'">{{ letter }}</li>
+</ul>
