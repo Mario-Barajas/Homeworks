@@ -1,0 +1,16 @@
+<h2>Directivas Estructurales</h2>
+<h2>NgFor</h2>
+<ul *ngFor="let letter of letters">
+  <li>{{ letter }}</li>
+</ul>
+<h2>NgIf</h2>
+<ul *ngFor="let letter of letters">
+  <li *ngIf="letter == 'B'">{{ letter }}</li>
+</ul>
+<h2>NgSwitch</h2>
+<ul *ngFor="let letter of letters; let i = index" [ngSwitch]="letter">
+  <li *ngSwitchCase="'A'">{{ i + 1 }}</li>
+  <li *ngSwitchCase="'B'">{{ i + 1 }}</li>
+  <li *ngSwitchCase="'C'">{{ i + 1 }}</li>
+  <li *ngSwitchDefault="">Error</li>
+</ul>
