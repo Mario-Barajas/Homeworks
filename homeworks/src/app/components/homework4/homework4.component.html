@@ -1,0 +1,8 @@
+<h2>4. Data Binding</h2>
+<h2>Event binding</h2>
+<button (click)="jsAlert()">Click Me</button>
+<h2>One way data binding</h2>
+<input type="text" [value]="inputValue" />
+<h2>Two way data binding</h2>
+<p>{{ message }}</p>
+<input (keyup)="inputHandler($event)" type="text" [value]="inputValue2" />
