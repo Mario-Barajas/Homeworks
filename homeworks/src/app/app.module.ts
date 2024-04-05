@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Homework7Component } from './components/homework7/homework7.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { PipeDemoComponent } from './components/pipe-demo-component/pipe-demo-component.component.component';
 
 @NgModule({
-  declarations: [AppComponent, Homework7Component, CapitalizePipe],
+  declarations: [AppComponent, CapitalizePipe, PipeDemoComponent],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
