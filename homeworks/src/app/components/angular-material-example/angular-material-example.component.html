@@ -1,0 +1,8 @@
+<h1>Material</h1>
+<button mat-raised-button color="primary" (click)="openDialog()">
+  Click Me
+</button>
+<h2 *ngIf="name; else noNameRef">Your name is: {{ name }}</h2>
+<ng-template #noNameRef>
+  <h2>The name was not typed yet</h2>
+</ng-template>
