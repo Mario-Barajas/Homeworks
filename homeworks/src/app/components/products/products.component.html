@@ -1,0 +1,67 @@
+<section class="mt-4">
+  <mat-checkbox
+    [(ngModel)]="offersValue"
+    (change)="offersChangeHandler($event.checked)"
+    routerLink="/products"
+    >Offers</mat-checkbox
+  >
+  <button mat-raised-button color="accent" (click)="openModal()">
+    New Product
+  </button>
+</section>
+<div class="flex mt-4 mx-4">
+  <mat-form-field class="w-full">
+    <mat-label>Type a word to search...</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="filterValue"
+      (ngModelChange)="filterChangeHandler($event)"
+    />
+    @if (filterValue){
+    <button
+      matSuffix
+      mat-icon-button
+      (click)="filterValue = ''; filterChangeHandler('')"
+    >
+      <mat-icon>close</mat-icon></button
+    >}
+  </mat-form-field>
+</div>
+<ng-container
+  *ngIf="filteredProducts$ | async as filteredProducts; else loadingRef"
+>
+  <product-card
+    [products]="filteredProducts | productFilter"
+    [page]="page"
+  ></product-card>
+  <paginator
+    [products]="filteredProducts | productFilter"
+    [page]="page"
+    (selectedPage)="selectedPageHandler($event)"
+  ></paginator>
+</ng-container>
+
+<!-- @if (offersValue){
+<product-card
+  [currentPage]="currentPage"
+  [pages]="offersList | productFilter"
+></product-card>
+} @else {
+<product-card
+  [currentPage]="currentPage"
+  [pages]="productList | productFilter"
+></product-card>
+} -->
+<!-- <product-card
+  [currentPage]="0"
+  [pages]="productList$ | async | productFilter"
+  ></product-card> -->
+<!-- <pre>
+    Api Call: {{ filteredProducts$ | async | json }}
+</pre> -->
+<!--  -->
+<router-outlet></router-outlet>
+<ng-template #loadingRef>
+  <mat-spinner color="accent" diameter="40"></mat-spinner>
+</ng-template>

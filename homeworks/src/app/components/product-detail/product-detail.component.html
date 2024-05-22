@@ -1,0 +1,32 @@
+<div class="mt-4">
+  <h1 class="text-center">{{ currentProduct.title }} details</h1>
+  <div class="flex gap-6 justify-center">
+    @for (price of currentProduct.prices;track $index){
+    <mat-card>
+      <img
+        mat-card-xl-image
+        [src]="currentProduct.photos[$index]"
+        [alt]="currentProduct.photos[$index]"
+      />
+      <div class="flex flex-col items-center">
+        <span class="text-2xl">{{ price.tag }}</span>
+        <span [ngStyle]="afterDiscountStyle(currentProduct.offerDiscount)">
+          {{ price.cost | priceAdjust | currency }}
+        </span>
+        @if (currentProduct.offerDiscount > 0){
+        <span [ngStyle]="discountStyle()">
+          {{
+            price.cost * ((100 - currentProduct.offerDiscount) / 100)
+              | priceAdjust
+              | currency
+          }}
+        </span>
+        }
+      </div>
+    </mat-card>
+    }
+  </div>
+  <h3 class="mt-4 text-center">
+    {{ currentProduct.description }}
+  </h3>
+</div>
