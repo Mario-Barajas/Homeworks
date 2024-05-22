@@ -1,0 +1,13 @@
+.card-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+}
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 3rem;
+}

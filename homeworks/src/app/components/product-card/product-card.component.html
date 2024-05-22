@@ -1,0 +1,20 @@
+<div class="card-container">
+  <mat-card
+    *ngFor="let product of products[page]"
+    [matBadge]="product.offerDiscount ? '%' : ''"
+    matBadgeSize="large"
+    matBadgeOverlap="true"
+  >
+    <mat-card-title>{{ product.title }}</mat-card-title>
+    <img
+      mat-card-xl-image
+      [src]="product.photos[0]"
+      [alt]="product.photos[0]"
+    />
+    <mat-card-actions>
+      <button mat-raised-button color="accent" [routerLink]="product.id">
+        See details
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

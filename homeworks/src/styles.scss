@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$final-exercise-primary: mat.define-palette(mat.$deep-purple-palette);
+$final-exercise-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$final-exercise-warn: mat.define-palette(mat.$red-palette);
+
+$final-exercise-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $final-exercise-primary,
+      accent: $final-exercise-accent,
+      warn: $final-exercise-warn,
+    ),
+  )
+);
+
+$final-exercise-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $final-exercise-primary,
+      accent: $final-exercise-accent,
+      warn: $final-exercise-warn,
+    ),
+  )
+);
+
+@include mat.all-component-typographies();
+@include mat.all-component-themes($final-exercise-light-theme);
+html,
+body {
+  height: 100%;
+}
+body {
+  background: mat.get-theme-color(
+    $final-exercise-light-theme,
+    background,
+    background
+  );
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+
+  &.dark {
+    @include mat.all-component-colors($final-exercise-dark-theme);
+    background: mat.get-theme-color(
+      $final-exercise-dark-theme,
+      background,
+      background
+    );
+    color: mat.get-theme-color($final-exercise-dark-theme, foreground, text);
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #673ab7;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: darkgrey;
+}

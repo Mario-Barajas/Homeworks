@@ -1,0 +1,17 @@
+<div class="a-component">
+  <h2>A Component</h2>
+  <nav mat-tab-nav-bar [tabPanel]="contentRef">
+    <a
+      mat-tab-link
+      *ngFor="let link of links"
+      routerLinkActive
+      [active]="activeRef.isActive"
+      [routerLink]="link.path"
+      #activeRef="routerLinkActive"
+      >{{ link.label }}</a
+    >
+  </nav>
+  <mat-tab-nav-panel #contentRef>
+    <router-outlet></router-outlet>
+  </mat-tab-nav-panel>
+</div>
